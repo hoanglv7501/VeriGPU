@@ -2,16 +2,16 @@
 // (although for now, the global_mem_controller contains the global memory)
 `default_nettype none
 module gpu_card(
-    input clk,
-    input rst,
-    output halt,
+    input wire clk,
+    input wire rst,
+    output reg halt,
 
-    output outflen,
-    output outen,
-    output [data_width - 1:0] out,
+    output reg outflen,
+    output reg outen,
+    output reg [data_width - 1:0] out,
 
-    input [31:0] cpu_recv_instr,  
-    input [31:0] cpu_in_data,
+    input wire [31:0] cpu_recv_instr,  
+    input wire [31:0] cpu_in_data,
     output reg [31:0] cpu_out_data,
     output reg cpu_out_ack
 );

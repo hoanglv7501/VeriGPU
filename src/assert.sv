@@ -1,4 +1,4 @@
-
+package assert_def;
 `define assert_known(VAL) \
     if(rst && (^(VAL) === 'x)) begin \
         $display("unknown value at %s line %0d", `__FILE__, `__LINE__); \
@@ -13,3 +13,4 @@
         $display("failed assert at %s line %0d value=%b", `__FILE__, `__LINE__, (VAL)); \
         $fatal(); \
     end
+endpackage

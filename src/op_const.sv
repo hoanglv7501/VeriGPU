@@ -1,3 +1,4 @@
+package op_const;
 typedef enum bit[6:0] {
     STORE =    7'b0100011,
     OPIMM =    7'b0010011,
@@ -70,3 +71,5 @@ typedef enum bit[4:0] {
     FDIV =  5'b00011,
     FSQRT = 5'b01011
 } e_funct5_float;
+endpackage
+

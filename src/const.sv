@@ -1,3 +1,4 @@
+package const_dim;
 parameter num_regs = 32;
 
 parameter data_width = 32;
@@ -14,3 +15,4 @@ parameter instr_width = 32;
 // parameter instr_width = 10;// parameter op_width = 10;
 
 parameter reg_sel_width = $clog2(num_regs);
+endpackage

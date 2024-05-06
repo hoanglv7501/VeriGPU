@@ -8,14 +8,16 @@ Area:                  30956.0 nand units
 import op_const::*;
 import mem_small::*;
 import assert_def::*;
+import const_dim::*;
+import const_float::*;
 `default_nettype none
 module core(
-    input rst,  // async resets the core, everything goes to zero (do we actually need this?), active low
-    input clk,  // clock
-    input clr,  // synchronous reset the core; everything goes to zero, active high
-    input ena,  // enables gpu to run; active high
-    input set_pc_req,  // requests to change PC; best to do this with ena 0
-    input [addr_width - 1:0] set_pc_addr, // new address for PC
+    input wire rst,  // async resets the core, everything goes to zero (do we actually need this?), active low
+    input wire clk,  // clock
+    input wire clr,  // synchronous reset the core; everything goes to zero, active high
+    input wire ena,  // enables gpu to run; active high
+    input wire set_pc_req,  // requests to change PC; best to do this with ena 0
+    input wire [addr_width - 1:0] set_pc_addr, // new address for PC
 
     output reg [data_width - 1:0] out,
     output reg outen,
@@ -24,12 +26,12 @@ module core(
     output reg halt,
 
     output reg [addr_width - 1:0] mem_addr,
-    input [data_width - 1:0]      mem_rd_data,
+    input wire [data_width - 1:0] mem_rd_data,
     output reg [data_width - 1:0] mem_wr_data,
     output reg                    mem_wr_req,
     output reg                    mem_rd_req,
-    input                         mem_ack,
-    input                         mem_busy
+    input  wire                   mem_ack,
+    input  wire                   mem_busy
 );
     // reg [data_width - 1:0] x1;
     reg [addr_width - 1:0] pc;

@@ -23,11 +23,11 @@ max propagation delay: 51.2 nand units
 
 `default_nettype none
 module float_add_pipeline(
-    input                         clk,
-    input                         rst,
-    input                         req,
-    input [float_width - 1:0]     a,
-    input [float_width - 1:0]     b,
+    input wire                    clk,
+    input wire                    rst,
+    input wire                    req,
+    input wire [float_width - 1:0] a,
+    input wire [float_width - 1:0] b,
     output reg [float_width -1:0] out,
     output reg                      ack
 );

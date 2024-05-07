@@ -1,6 +1,6 @@
 // This is a GENERATED file. Do not modify by hand.
 // Created by verigpu/generation/mul_pipeline_cycle.py
-
+package mul_pipeline_24;
 task mul_pipeline_cycle_24bit_2bpc(
     input [5:0] pos,
     input [23:0] a,
@@ -181,3 +181,4 @@ task mul_pipeline_cycle_24bit_2bpc(
     { carry_106, sum_107 } = carry_98 + carry_104;
     { cout, sum } = {sum_107, sum_105, sum_103, sum_101, sum_93, sum_85, sum_57};
 endtask
+endpackage 

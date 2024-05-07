@@ -5,7 +5,11 @@ Max propagation delay: 59.4 nand units
 Area:                  2283.0 nand units
 
 */
-module mul_pipeline_32bit(
+`default_nettype wire
+module mul_pipeline_32bit #(
+    parameter width = 32,
+    parameter bits_per_cycle = 2)
+    (
     input clk,
     input rst,
     input req,
@@ -14,8 +18,7 @@ module mul_pipeline_32bit(
     output reg [width - 1:0] out,
     output reg ack
 );
-    parameter width = 32;
-    parameter bits_per_cycle = 2;
+    
 
     reg [width - 1:0] internal_a;
     reg [width - 1:0] internal_b;

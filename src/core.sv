@@ -10,6 +10,8 @@ import mem_small::*;
 import assert_def::*;
 import const_dim::*;
 import const_float::*;
+import chunked_add_task::*;
+import chunked_sub_task::*;
 `default_nettype none
 module core(
     input wire rst,  // async resets the core, everything goes to zero (do we actually need this?), active low

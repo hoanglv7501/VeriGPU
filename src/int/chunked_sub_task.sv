@@ -4,6 +4,7 @@ try subracting in blocks of two bytes
 Max propagation delay: 54.2 nand units
 Area:                  396.5 nand units
 */
+package chunked_sub_task;
 task chunked_sub_task(
     input [adder_width - 1:0] a,
     input [adder_width - 1:0] b,
@@ -35,3 +36,4 @@ task chunked_sub_task(
 
     out = {out1, out0};
 endtask
+endpackage 

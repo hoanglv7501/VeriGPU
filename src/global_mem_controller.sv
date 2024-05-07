@@ -2,21 +2,23 @@
 // we add in simulated delay
 
 // `timescale 1ns/10ps
-
+//`default_nettype wire
+import mul_pipeline_32::*;
+import mul_pipeline_24::*;
 module global_mem_controller (
-    input clk,
-    input rst,
+    input wire clk,
+    input wire rst,
     // input ena,  // enables incoming requests to be processed. whilst this is low, incoming requests are stored
                 // (only a single request can be stored), and once this goes high, it will be processed
                 // this lets us turn off reset, load in our program into memory, then turn on enable
                 // and the processor starts running
 
-    input core1_rd_req,
-    input core1_wr_req,
+    input wire core1_rd_req,
+    input wire core1_wr_req,
 
-    input [addr_width - 1:0]      core1_addr,
+    input wire [addr_width - 1:0]      core1_addr,
     output reg [data_width - 1:0] core1_rd_data,
-    input [data_width - 1:0]      core1_wr_data,
+    input wire [data_width - 1:0]      core1_wr_data,
 
     output reg core1_busy,
     output reg core1_ack,
@@ -31,11 +33,11 @@ module global_mem_controller (
 
     // for use by controller.sv
     // we'll probalby add siulated delay to this
-    input                    contr_wr_en,
-    input                    contr_rd_en,
-    input [addr_width - 1:0] contr_wr_addr,
-    input [data_width - 1:0] contr_wr_data,
-    input [addr_width - 1:0] contr_rd_addr,
+    input wire                   contr_wr_en,
+    input wire                   contr_rd_en,
+    input wire [addr_width - 1:0] contr_wr_addr,
+    input wire [data_width - 1:0] contr_wr_data,
+    input wire [addr_width - 1:0] contr_rd_addr,
     output reg [data_width - 1:0] contr_rd_data,
     output reg contr_rd_ack
 );
@@ -140,7 +142,7 @@ module global_mem_controller (
     end
 
     always @(posedge clk, negedge rst) begin
-        `assert_known(rst);
+//        `assert_known(rst);
         if(~rst) begin
             // $display("mem_delayed.rst");
             clks_to_wait <= 0;

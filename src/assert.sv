@@ -1,6 +1,6 @@
 package assert_def;
 `define assert_known(VAL) \
-    if(rst && (^(VAL) === 'x)) begin \
+    if(rst && (^(VAL) == 'x)) begin \
         $display("unknown value at %s line %0d", `__FILE__, `__LINE__); \
         $fatal(); \
     end

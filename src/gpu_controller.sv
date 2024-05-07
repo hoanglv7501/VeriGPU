@@ -38,14 +38,14 @@ We can be pretty wasteful of resources in the controller, since there's only one
 */
 `default_nettype none
 module gpu_controller(
-    input clk,
-    input rst,
+    input wire clk,
+    input wire rst,
 
     // comms with mainboard cpu
-    input [31:0] cpu_recv_instr,  
+    input wire [31:0] cpu_recv_instr,  
     // I'm using in/out, because less ambigous than rd/wr I feel, i.e. invariant
     // with PoV this module, or PoV calling module
-    input [31:0] cpu_in_data,
+    input wire [31:0] cpu_in_data,
     output reg [31:0] cpu_out_data,
     output reg cpu_out_ack,  // high each time we are outputing data
     // output reg cpu_kernel_finished, // maybe should have an outbound instruction instead? (that would probalby be the AXI way)
@@ -56,15 +56,15 @@ module gpu_controller(
     output reg [addr_width - 1:0] mem_wr_addr,
     output reg [data_width - 1:0] mem_wr_data,
     output reg [addr_width - 1:0] mem_rd_addr,
-    input [data_width - 1:0] mem_rd_data,
-    input mem_rd_ack,
+    input wire [data_width - 1:0] mem_rd_data,
+    input wire mem_rd_ack,
 
     // and core (later: cores)
     output reg core_ena,
     output reg core_clr,
     output reg core_set_pc_req,
     output reg [data_width - 1:0] core_set_pc_addr,
-    input core_halt
+    input wire core_halt
 );
     parameter MAX_PARAMS = 20;
 

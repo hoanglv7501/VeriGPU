@@ -13,15 +13,15 @@ Max propagation delay: 54.6 nand units
 Area:                  3841.5 nand units
 
 */
-
+import mul_pipeline_24::*;
 `default_nettype none
 module float_mul_pipeline(
-    input                               clk,
-    input                               rst,
-    input                               req,
+    input wire                          clk,
+    input wire                          rst,
+    input wire                          req,
     output reg                          ack,
-    input [float_width - 1:0]           a,
-    input [float_width - 1:0]           b,
+    input wire [float_width - 1:0]      a,
+    input wire [float_width - 1:0]      b,
     output reg [float_width - 1:0]      out
 );
     parameter bits_per_cycle = 2;

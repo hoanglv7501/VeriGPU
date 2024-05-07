@@ -7,10 +7,10 @@
 // for now, the global memory controller also contains global memory, but we will split those
 // off from each other
 
-`default_nettype none
+`default_nettype wire
 module gpu_die(
-    input clk,
-    input rst,
+    input wire clk,
+    input wire rst,
 
     // comms with mainboard cpu
     input [31:0] cpu_recv_instr,  

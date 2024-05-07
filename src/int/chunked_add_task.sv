@@ -4,6 +4,7 @@ try adding one in blocks of two bytes
 Max propagation delay: 43.8 nand units
 Area:                  357.5 nand units
 */
+package chunked_add_task;
 task chunked_add_task(
     input [adder_width - 1:0] a,
     input [adder_width - 1:0] b,
@@ -35,3 +36,4 @@ task chunked_add_task(
 
     out = {out1, out0};
 endtask
+endpackage
